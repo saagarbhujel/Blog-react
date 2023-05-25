@@ -1,23 +1,24 @@
 // import React from 'react'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./auth.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { LOGIN_URL } from "../../constants";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authToken, setAuthToken] = useState("")
 
-  const verifyUser = () => {
-   const response = axios.post(
-     "https://gaurav.tunnel.yarsagames.com/auth/login",
-     {
-       email: email,
-       password: password,
-     }
-   );
-   const accessToken= localStorage.getItem('accessToken')
-    console.log(accessToken)
+  const verifyUser = async() => {
+    const response = await axios.post(LOGIN_URL, {
+      email: email,
+      password: password,
+    });
+    const accessToken = response.data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    console.log(accessToken);
     setEmail("");
     setPassword("");
   };
@@ -27,6 +28,12 @@ const Login = () => {
     console.log(email, password);
     verifyUser();
   };
+  useEffect(()=>{
+    const storedAccessToken = localStorage.getItem('accessToken')
+    if(storedAccessToken){
+      setAuthToken(storedAccessToken)
+    }
+  },[])
 
   return (
     <>

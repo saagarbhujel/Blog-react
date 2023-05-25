@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./auth.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { SIGN_UP_URL } from "../../constants";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const SignUp = () => {
   const registerUser = async () => {
     try {
      const response = await axios.post(
-       "https://gaurav.tunnel.yarsagames.com/auth/signup",
+       SIGN_UP_URL,
        {
          email: email,
          password: password,
@@ -20,7 +21,7 @@ const SignUp = () => {
        },
        {
          headers: {
-          Accept: "application/json",
+           Accept: "application/json",
            "Content-Type": "application/json",
          },
        }
@@ -37,12 +38,12 @@ const SignUp = () => {
     }
   };
 
-  useEffect(()=>{
-    const storedAccessToken = localStorage.getItem('accessToken')
-    if(storedAccessToken){
-      setAuthToken(storedAccessToken)
-    }
-  },[])
+  // useEffect(()=>{
+  //   const storedAccessToken = localStorage.getItem('accessToken')
+  //   if(storedAccessToken){
+  //     setAuthToken(storedAccessToken)
+  //   }
+  // },[])
 
   const submitFrom = (e) => {
     e.preventDefault();
