@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./auth.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -29,16 +29,26 @@ const SignUp = () => {
       setPassword("");
       setName("");
       setAuthToken(response.data.accessToken);
+      localStorage.setItem('accessToken' ,response.data.accessToken)
       console.log(response.data.accessToken);
+      console.log(response.data)
     } catch (error) {
       console.log("error=" + error);
     }
   };
 
+  useEffect(()=>{
+    const storedAccessToken = localStorage.getItem('accessToken')
+    if(storedAccessToken){
+      setAuthToken(storedAccessToken)
+    }
+  },[])
+
   const submitFrom = (e) => {
     e.preventDefault();
     registerUser();
     console.log(name, email, password);
+         console.log("authToken:", authToken);
   };
 
   return (

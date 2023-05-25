@@ -9,10 +9,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const verifyUser = () => {
-   const response= axios.post(LOGIN_URL, {
-      email: email,
-      password: password,
-    });
+   const response = axios.post(
+     "https://gaurav.tunnel.yarsagames.com/auth/login",
+     {
+       email: email,
+       password: password,
+     }
+   );
+   const accessToken= localStorage.getItem('accessToken')
+    console.log(accessToken)
     setEmail("");
     setPassword("");
   };
