@@ -1,49 +1,53 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* background-color: rgb(0, 0, 0) ; */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: rgb(0, 0, 0) ; */
 }
 
-
-
-.container{
-    padding: 26px 17px 26px 17px;
-    background-color: white;
-    /* border: 1px solid black; */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;    
+.container {
+  padding: 26px 17px 26px 17px;
+  background-color: white;
+  /* border: 1px solid black; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.heading{
-    text-align: center;
+.heading {
+  text-align: center;
 }
 
-.container input{
-    padding: 10px;
-    margin: 10px;
-    padding-right: 7rem;
-    outline: none;
-}
-.btn{
-    display: flex;
-    justify-content: center;
-  
+p {
+  margin-left: 10px;
 }
 
-.btn button{
-    margin-top: 5px;
-    padding: 7px 20px;
-    background-color: black;
-    color:white;
-    border: none;
-    
-    
+.container input {
+  padding: 10px;
+  margin: 5px 10px 10px 10px;
+  width: 18rem;
+  outline: none;
+}
+.register-from-other-route {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.Btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin-top: 5px;
+  padding: 7px 20px;
+  background-color: black;
+  color: white;
+  border: none;
 }

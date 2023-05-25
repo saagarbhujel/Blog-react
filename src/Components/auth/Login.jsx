@@ -1,28 +1,70 @@
 // import React from 'react'
-import "./auth.css"
+import { useState } from "react";
+import "./auth.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  
+  const verifyUser = () => {
+   const response= axios.post(LOGIN_URL, {
+      email: email,
+      password: password,
+    });
+    setEmail("");
+    setPassword("");
+  };
+
+  const signIn = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    verifyUser();
+  };
+
   return (
-   <>
-   <div className="container">
-    <h3 className="heading">Login</h3>
-    <div className="email">
-       
-        <input type="email" name="email" id="email" placeholder="Enter your email"/>
-    </div>
-    <div className="password">
-        
-        <input type="password" name="password" id="" placeholder="Enter your password"/>
-    </div>
-    <div className="btn">
-     <button>Login</button>
-    </div>
-   </div>
-   </>
+    <>
+      <div className="container">
+        <h3 className="heading">Login</h3>
+        <form>
+          <div className="email">
+            <p>Enter your email</p>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              value={email}
+              autoComplete="current-email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="password">
+            <p>Enter your password</p>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </div>
+          <div className="register-from-other-route">
+            <Link to="/signup">
+              didn't have an account? <span>sign in</span>
+            </Link>
+          </div>
+          <div className="Btn">
+            <button className="btn" onClick={signIn}>
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+};
 
-  )
-}
-
-export default Login
+export default Login;

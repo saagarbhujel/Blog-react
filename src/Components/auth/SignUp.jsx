@@ -1,52 +1,97 @@
-import {useState} from 'react'
-import "./auth.css"
+import { useState } from "react";
+import "./auth.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
-const [name, setName] = useState('')
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [authToken, setAuthToken] = useState("")
 
-const handleName=(e)=>{
-  setName(e.target.value)
-}
+  const registerUser = async () => {
+    try {
+     const response = await axios.post(
+       "https://gaurav.tunnel.yarsagames.com/auth/signup",
+       {
+         email: email,
+         password: password,
+         name: name,
+       },
+       {
+         headers: {
+          ' accept': "application/json",
+           "Content-Type": "application/json",
+         },
+       }
+     );
+      setEmail("");
+      setPassword("");
+      setName("");
+      // setAuthToken("")
+      console.log('hi')
+      console.log(response.accessToken)
+    } catch (error) {
+      console.log("error=" + error);
+    }
+  };
 
-const handleEmail =(e)=>{
-  setEmail(e.target.value)
-}
-
-const handlePassword=(e)=>{
-  setPassword(e.target.value)
-}
-
-const submitFrom=(e)=>{
-  e.preventDefault();
-  console.log(name,email,password)
-}
+  const submitFrom = (e) => {
+    e.preventDefault();
+    registerUser();
+    console.log(name, email, password);
+  };
 
   return (
     <>
-  <form>
-  <div className="container">
-    <div className="userName">
-        <p>Enter Your name</p>
-        <input type="text" name="name" id="name" onChange={handleName} value={name}/>
-    </div>
-    <div className="email">
-        <p>Enter Your email</p>
-        <input type="email" onChange={handleEmail} value={email} />
-    </div>
-    <div className="password">
-        <p>Enter your password</p>
-        <input type="password"  onChange={handlePassword} value={password}/>
-    </div>
-    <div className="btn">
-     <button className='btn' onClick={submitFrom}>Signup</button>
-    </div>
-   </div>
-  </form>
-   
+      <div className="container">
+        <form onSubmit={submitFrom}>
+          <div className="userName">
+            <p>Enter Your name</p>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="email">
+            <p>Enter Your email</p>
+            <input
+              type="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="current-email"
+              required
+            />
+          </div>
+          <div className="password">
+            <p>Enter Your password</p>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div className="register-from-other-route">
+            <Link to="/login">Already have an account? <span>Login</span></Link>
+          </div>
+          <div className="Btn">
+            <button className="btn" >
+              Signup
+            </button>
+          </div>
+        </form>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
