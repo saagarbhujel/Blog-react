@@ -7,7 +7,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [authToken, setAuthToken] = useState("")
+  const [authToken, setAuthToken] = useState("")
 
   const registerUser = async () => {
     try {
@@ -20,7 +20,7 @@ const SignUp = () => {
        },
        {
          headers: {
-          ' accept': "application/json",
+          Accept: "application/json",
            "Content-Type": "application/json",
          },
        }
@@ -28,9 +28,8 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
       setName("");
-      // setAuthToken("")
-      console.log('hi')
-      console.log(response.accessToken)
+      setAuthToken(response.data.accessToken);
+      console.log(response.data.accessToken);
     } catch (error) {
       console.log("error=" + error);
     }
