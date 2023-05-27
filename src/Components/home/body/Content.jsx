@@ -1,15 +1,16 @@
 import React from 'react'
-import img from "../../img/vecteezy_team-enter-optimization-seo-ideas-for-blog-and-web-content_.jpeg"
+import img from "../../../img/vecteezy_team-enter-optimization-seo-ideas-for-blog-and-web-content_.jpeg"
 import "./content.css"
 
 const Content = () => {
   return (
     <>
       <h1 className="heading">SEWANUNG</h1>
+      
       <section className="content">
         <div className="content-left">
           <p className="description">
-            Welcome to our blog website! We are a community of writers and
+            <span style={{ fontSize:"24px"}}>W</span>elcome to our blog website! We are a community of writers and
             experts who are passionate about sharing our knowledge and insights
             on a wide range of topics. Our blog covers everything from lifestyle
             and travel to technology and business, with the aim of providing our

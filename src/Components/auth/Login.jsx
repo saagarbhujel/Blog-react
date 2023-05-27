@@ -49,7 +49,7 @@ const Login = () => {
           <div className="box">
         <h3 className="heading">Login</h3>
           <div className="email">
-            <p>Enter your email</p>
+            <p className="head">Enter your email</p>
             <input
               type="email"
               name="email"
@@ -61,7 +61,7 @@ const Login = () => {
             />
           </div>
           <div className="password">
-            <p>Enter your password</p>
+            <p className="head">Enter your password</p>
             <input
               type="password"
               name="password"

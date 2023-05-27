@@ -5,8 +5,7 @@ margin: 15px;
     letter-spacing: 0.8px;
     font-family: var(--font1);
     padding-bottom: 5vh;
-    position: relative;
-    right: 15rem;
+    
 
 }
 
@@ -22,10 +21,11 @@ margin: 15px;
 }
 
 .description{
-    line-height: 28px;
-    letter-spacing: 0.5px;
-    font-size: 18px;
-    font-family: var(--font3);
+    line-height: 23px;
+    letter-spacing: 0.2px;
+    font-size: 16px;
+    font-family: var(--font5);
+    font-weight: 300;
 }
 
 .content-right{

@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../auth/auth.css";
 import NavBar from "../navbar/NavBar";
-import Content from "../body/Content";
+import Content from "./body/Content";
+import HomeArticles from "./homeArticles/HomeArticles";
+import Footer from "../footer/footer";
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
         </button>
       </Link> */}
       <Content/>
+      <HomeArticles/>
+      <Footer/>
     </>
   );
 };
