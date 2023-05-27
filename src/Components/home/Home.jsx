@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../auth/auth.css";
 import NavBar from "../navbar/NavBar";
+import Content from "../body/Content";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
           Sign Up
         </button>
       </Link> */}
+      <Content/>
     </>
   );
 };
