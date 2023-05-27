@@ -54,52 +54,54 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="container">
+       
         <form onSubmit={submitFrom}>
-          <div className="userName">
-            <p>Enter Your name</p>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="email">
-            <p>Enter Your email</p>
-            <input
-              type="email"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              autoComplete="current-email"
-              required
-            />
-          </div>
-          <div className="password">
-            <p>Enter Your password</p>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div className="register-from-other-route">
-            <Link to="/login">Already have an account? <span>Login</span></Link>
-          </div>
-          <div className="Btn">
-            <button className="btn" >
-              Signup
-            </button>
+          <div className="box">
+            <div className="userName">
+              <p>Enter Your name</p>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="email">
+              <p>Enter Your email</p>
+              <input
+                type="email"
+                value={email}
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="current-email"
+                required
+              />
+            </div>
+            <div className="password">
+              <p>Enter Your password</p>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div className="register-from-other-route">
+              <Link to="/login">
+                Already have an account? <span>Login</span>
+              </Link>
+            </div>
+            <div className="Btn">
+              <button className="btn">Signup</button>
+            </div>
           </div>
         </form>
-      </div>
+
     </>
   );
 };

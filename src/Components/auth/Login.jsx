@@ -11,6 +11,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [authToken, setAuthToken] = useState("")
 
+
+
   const verifyUser = async() => {
     const response = await axios.post(LOGIN_URL, {
       email: email,
@@ -21,25 +23,31 @@ const Login = () => {
     console.log(accessToken);
     setEmail("");
     setPassword("");
+     window.location.href = "/";
   };
+
 
   const signIn = (e) => {
     e.preventDefault();
     console.log(email, password);
     verifyUser();
   };
+
+
   useEffect(()=>{
     const storedAccessToken = localStorage.getItem('accessToken')
     if(storedAccessToken){
       setAuthToken(storedAccessToken)
+      
     }
   },[])
 
   return (
     <>
-      <div className="container">
-        <h3 className="heading">Login</h3>
+
         <form>
+          <div className="box">
+        <h3 className="heading">Login</h3>
           <div className="email">
             <p>Enter your email</p>
             <input
@@ -73,8 +81,8 @@ const Login = () => {
               Login
             </button>
           </div>
-        </form>
       </div>
+        </form>
     </>
   );
 };

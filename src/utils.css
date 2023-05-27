@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200&family=Roboto:wght@100;300;400&family=Ubuntu:ital,wght@0,300;1,300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&display=swap");
+
+:root {
+  --main--color: purple;
+  --secondary--color: violet;
+  --main--bg--color: brown;
+  --font1: "Barlow Semi Condensed", sans-serif;
+  --font2: "Roboto", sans-serif;
+  --font3: "Ubuntu", sans-serif;
+  --font4: "Inconsolata", monospace;
+}
+
